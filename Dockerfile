@@ -8,7 +8,7 @@ ENV JAVA_OPTS="-Daxelor.config=/var/lib/tomcat/app.properties"
 
 # Add a tomcat user
 RUN groupadd -r ${RUN_GROUP} && useradd -g ${RUN_GROUP} -d ${CATALINA_HOME} -s /bin/bash ${RUN_USER}
-RUN chown -R tomcat:tomcat $CATALINA_HOME
+RUN chown -R tomcat:tomcat $CATALINA_HOME/webapps
 
 COPY --chown=1000:1000 build/libs/axelor-erp-*.war $CATALINA_HOME/webapps/ROOT.war
 
